@@ -30,6 +30,11 @@
       </ul>
     @if (accountService.currentUser()) {
       <div class="btn-group" dropdown>
+        <img
+          class="me-2"
+          src="{{accountService.currentUser()?.photoUrl || './assets/user.png'}}"
+          alt="user main image"
+        >
         <button
           id="button-animated"
           dropdownToggle
