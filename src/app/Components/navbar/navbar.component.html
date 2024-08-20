@@ -42,7 +42,8 @@
           class="btn text-light dropdown-toggle"
           aria-controls="dropdown-animated"
         >
-          Welcome {{accountService.currentUser()?.username | titlecase}} <span class="caret"></span>
+          <!-- Welcome {{accountService.currentUser()?.username | titlecase}} <span class="caret"></span> -->
+          Welcome {{accountService.currentUser()?.knownAs}}
         </button>
         <ul
           id="dropdown-animated"
