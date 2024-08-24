@@ -7,6 +7,7 @@ import { MessagesComponent } from './Components/messages/messages.component';
 import { authGuard } from './Guards/auth.guard';
 import { MemberEditComponent } from './Components/member/member-edit/member-edit.component';
 import { preventUnsavedChangesGuard } from './Guards/prevent-unsaved-changes.guard';
+import { memberDetailedResolver } from './resolvers/member-detailed.resolver';
 
 export const routes: Routes = [
   {path :'', component : HomeComponent},
@@ -16,7 +17,8 @@ export const routes: Routes = [
     children : [
       {path :'lists', component : ListsComponent},
       {path :'members', component : MemberListComponent},
-      {path :'members/:username', component : MemberDetailComponent},
+      {path :'members/:username', component : MemberDetailComponent,
+        resolve: {member: memberDetailedResolver}},
       {path :'member/edit', component : MemberEditComponent, canDeactivate:[preventUnsavedChangesGuard]},
       {path :'messages', component : MessagesComponent}
     ]
