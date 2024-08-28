@@ -4,9 +4,9 @@ import { AccountService } from '../Services/account.service';
 import { ToastrService } from 'ngx-toastr';
 
 export const authGuard: CanActivateFn = (route, state) => {
-const accountServive = inject(AccountService);
+const accountService = inject(AccountService);
 const toastr = inject(ToastrService);
-if (accountServive.currentUser()) return true;
+if (accountService.currentUser()) return true;
 else {
   toastr.error('you shall not pass');
   return false;
